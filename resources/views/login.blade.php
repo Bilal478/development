@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-Bilal Accreditation Managemnt System
+Bilal Rasool Accreditation Managemnt System
 @endsection
 <body class="hold-transition login-page">
 @section('body')
