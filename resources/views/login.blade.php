@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-Bilal Rasool Trying Accreditation Managemnt System
+Accreditation Managemnt System
 @endsection
 <body class="hold-transition login-page">
 @section('body')
@@ -9,7 +9,7 @@ Bilal Rasool Trying Accreditation Managemnt System
 
   <div class="login-logo">
   <img src="dist/img/logo2.png " alt="AdminLTE Logo" class="brand-image " >
-    <a><b>Accreditation</b>System</a>
+    <a><b>Bial Accreditation</b>System</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
