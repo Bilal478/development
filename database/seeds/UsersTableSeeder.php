@@ -13,9 +13,9 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        DB::table(with(new User())->getTable())->truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        // DB::table(with(new User())->getTable())->truncate();
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
 //        DB::statement("TRUNCATE TABLE ".(new User())->getTable()." RESTART IDENTITY CASCADE");
 
  //       $user = User::where('email','admin@macrotechgroups.com')->first();
