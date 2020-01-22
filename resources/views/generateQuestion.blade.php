@@ -1,22 +1,13 @@
-@extends('sidebar')
 
-@extends('footer')
 
 @extends('layout')
 
-@extends('menubar')
-
-
-<body class="hold-transition sidebar-mini layout-fixed">
 
 <!-- Main Sidebar Container -->
 
 
-@section('body')
+@section('content')
 
-    <div class="wrapper">
-
-    <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="container-fluid">
@@ -78,7 +69,7 @@
                         <label>Enter True Option (a,b,c or d)</label>
                         <input type="text" class="form-control" placeholder="Enter True Option ..." required>
                       </div>
-                
+
               </div>
               <!-- /.card-body -->
 
@@ -91,13 +82,13 @@
           <!-- /.card -->
 
           <!-- Form Element sizes -->
-          
+
           <!-- /.card -->
 
         </div>
-        
+
         <!-- right column -->
-       
+
 
         <!--/.col (right) -->
       </div>
@@ -105,7 +96,7 @@
     </div><!-- /.container-fluid -->
   </section>
 
-    </div>   
+
   @endsection
-  
-</body>
+
+

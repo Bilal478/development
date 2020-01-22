@@ -12,8 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('auth.login');
 });
+
+Route::resource('subject', 'SubjectController');
+
+Route::resource('logfile', 'LogFilesController');
+
+Route::resource('contentfile', 'ContentFilesController');
+
+Route::resource('descriptionfile', 'DescriptionFilesController');
+
 Route::get('index', function () {
     return view('index');
 });
@@ -24,3 +33,10 @@ Route::get('generatequiz', function () {
 Route::get('generatequestion', function () {
     return view('generateQuestion');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Subject;
+use App\Logfile;
+
 class SubjectController extends Controller
 {
     /**
@@ -13,7 +16,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+        return view('add-files');
     }
 
     /**
@@ -23,7 +26,8 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        //
+        $subjects = Subject::all();
+        return view('add-subject',compact('subjects'));
     }
 
     /**
@@ -32,9 +36,14 @@ class SubjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Subject $subject)
     {
-        //
+        $validate = request()->validate([
+            'name' => ['required', 'min:3']
+        ]);
+
+        $subject->create($validate);
+        return back()->with('success','Subject Added successfully!');
     }
 
     /**
@@ -45,7 +54,7 @@ class SubjectController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

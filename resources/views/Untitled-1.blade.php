@@ -84,24 +84,21 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
-        @if(Auth::user()->type == 'admin')
-                @include('test')
-         @endif
+
                  <!-- log file -->
             <li class="nav-item has-treeview ">
-              <a  href="{{ route('logfile.index') }}" class="nav-link active">
+              <a  href="{{ route('subject.create') }}" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Log Files
                   <i class=""></i>
                 </p>
               </a>
-            </li>
               <!-- end log files -->
 
               <!-- Description Files -->
             <li class="nav-item has-treeview ">
-              <a href="{{ route('descriptionfile.index') }}" class="nav-link active">
+              <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Description Files
@@ -113,7 +110,7 @@
 
             <!-- Content  Files -->
             <li class="nav-item has-treeview ">
-              <a href="{{ route('contentfile.index') }}" class="nav-link active">
+              <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Content Files
@@ -275,11 +272,10 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    @include('flash-message')
     @yield('content')
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer text-center ">
+  <footer class="main-footer text-center">
     <strong>Copyright &copy; 2016-2020 <a href="https://superior.edu.pk/" target="_blank">Superior.edu</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
@@ -328,41 +324,5 @@
 <script href="{{asset('dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script href="{{asset('dist/js/demo.js')}}" ></script>
-</body>
-</html>
-<!-- jQuery -->
-<script src="/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="/plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="/plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="/plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="/plugins/moment/moment.min.js"></script>
-<script src="/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="/plugins/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/dist/js/demo.js"></script>
 </body>
 </html>
