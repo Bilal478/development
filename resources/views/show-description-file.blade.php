@@ -25,7 +25,7 @@
 
             @foreach ($descriptionfiles as $descriptionfile)
               <div class="col-md-3 col-sm-6 col-12 float-left mt-5">
-                  <a class="pb-8" href="{{$descriptionfile->path  }} "><div class="info-box">
+                  <a class="pb-8" href="{{$descriptionfile->path  }} " download><div class="info-box">
                     <span class="info-box-icon bg-info"><i class="fas fa-file-download"></i></span>
 
                     <div class="info-box-content">

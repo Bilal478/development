@@ -25,7 +25,7 @@
 
             @foreach ($contentfiles as $contentfile)
               <div class="col-md-3 col-sm-6 col-12 float-left mt-5">
-                  <a class="pb-8" href="{{$contentfile->path  }} ">
+                  <a class="pb-8" href="{{$contentfile->path  }} " download>
                     <div class="info-box">
                     <span class="info-box-icon bg-info"><i class="fas fa-file-download"></i></span>
 
