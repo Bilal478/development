@@ -60,7 +60,7 @@
 
                   <tr>
                     <td>{{$i++  }}</td>
-                    <td><a class="pb-8 text-dark" href="{{'/'.$logFile->path  }} "><i class="far fa-file-word"></i>&nbsp;{{$logFile->name  }}</a></td>
+                    <td><a class="pb-8 text-dark" href="{{'/'.$logFile->path  }} " download><i class="far fa-file-word"></i>&nbsp;{{$logFile->name  }}</a></td>
 
                     <td>
                         <form action="/logfile/{{$logFile->id}}" method="POST">

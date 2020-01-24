@@ -76,7 +76,7 @@
 
                       <tr>
                         <td>{{$i++  }}</td>
-                        <td><a class="pb-8 text-dark" href="{{'/'.$descriptionfile->path  }} "><i class="far fa-file-word"></i>&nbsp;{{$descriptionfile->name  }}</a></td>
+                        <td><a class="pb-8 text-dark" href="{{'/'.$descriptionfile->path  }} " download><i class="far fa-file-word"></i>&nbsp;{{$descriptionfile->name  }}</a></td>
 
                         <td>
                             <form action="/descriptionfile/{{$descriptionfile->id}}" method="POST">
