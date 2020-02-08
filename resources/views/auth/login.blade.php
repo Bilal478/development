@@ -24,10 +24,12 @@
   <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.css')}}" >
+  <link rel="stylesheet" href="{{asset('css/app.css')}}" >
+
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed " style="background:#323a46">
+<body class="hold-transition sidebar-mini layout-fixed " >
 <div class="d-flex justify-content-center ">
     <div class="login-box bg-light mt-5 align-center ">
 
@@ -91,9 +93,7 @@
 <!-- jQuery UI 1.11.4 -->
 <script href="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
+
 <!-- Bootstrap 4 -->
 <script href="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- ChartJS -->
@@ -120,5 +120,7 @@
 <script href="{{asset('dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script href="{{asset('dist/js/demo.js')}}" ></script>
+{{-- <script href="{{asset('js/app.js')}}" ></script> --}}
+<script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

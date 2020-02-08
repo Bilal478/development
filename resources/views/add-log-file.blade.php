@@ -56,20 +56,22 @@
               </tr>
             </thead>
             <tbody>
-            @foreach ($logFiles as $logFile)
 
+            @foreach ($subjects as $subject)
+            @if($subject->logFile)
                   <tr>
                     <td>{{$i++  }}</td>
-                    <td><a class="pb-8 text-dark" href="{{'/'.$logFile->path  }} " download><i class="far fa-file-word"></i>&nbsp;{{$logFile->name  }}</a></td>
+                    <td><a class="pb-8 text-dark" href="{{'/'.$subject->logFile->path  }} " download><i class="far fa-file-word"></i>&nbsp;{{$subject->logFile->name  }}</a></td>
 
                     <td>
-                        <form action="/logfile/{{$logFile->id}}" method="POST">
+                        <form action="/logfile/{{$subject->logFile->id}}" method="POST">
                             @method('DELETE')
                             @csrf
                                 <input type="submit" value="Delete" class="btn btn-danger">
                         </form>
                     </td>
                   </tr>
+                  @endif
             @endforeach
         </tbody>
     </table>

@@ -12,7 +12,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Add Subject</li>
+              <li class="breadcrumb-item active"> {{$i=1}}Add Subject</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -34,9 +34,38 @@
             </div>
             </div>
         </form>
+        <div class="card-body pt-5 mt-5 mr-4 ml-4">
+
+            <table class="table">
+                <thead class="bg-white">
+                  <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Subject name</th>
+                    <th style="width: 40px">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @foreach ($subjects as $subject)
+
+                      <tr>
+                        <td>{{$i++  }}</td>
+                        <td><i class="fas fa-book"></i>&nbsp;{{$subject->name  }}</td>
+
+                        <td>
+                            <form action="/subject/{{$subject->id}}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                    <input type="submit" value="Delete" class="btn btn-danger">
+                            </form>
+                        </td>
+                      </tr>
+                @endforeach
+            </tbody>
+        </table>
+            </div>
 
 
-                @foreach ($subjects as $subject)
+                {{-- @foreach ($subjects as $subject)
                 <div class="col-md-3 col-sm-6 col-12 float-left mt-5">
                     <a class="pb-8" href="#">
                     <div class="info-box">
@@ -51,7 +80,7 @@
 
 
 
-                @endforeach
+                @endforeach --}}
 
 
 

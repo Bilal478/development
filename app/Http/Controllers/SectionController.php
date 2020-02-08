@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Subject;
-use App\Logfile;
+use App\Section;
 
-class SubjectController extends Controller
+class SectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        return view('add-files');
+       //
     }
 
     /**
@@ -26,8 +25,8 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        $subjects = Subject::all();
-        return view('add-subject',compact('subjects'));
+        $sections = Section::all();
+        return view('add-section',compact('sections'));
     }
 
     /**
@@ -36,14 +35,15 @@ class SubjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Subject $subject)
+    public function store(Request $request)
     {
         $validate = request()->validate([
-            'name' => ['required', 'min:3']
+            'name' => ['required', 'min:1']
         ]);
-
-        $subject->create($validate);
-        return back()->with('success','Subject Added successfully!');
+        $section = new Section();
+        $section->name = strtoupper($request->name);
+        $section->save();
+        return back()->with('success','Section Added successfully!');
     }
 
     /**
@@ -54,7 +54,7 @@ class SubjectController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -86,18 +86,9 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Subject $subject)
+    public function destroy(Section $section)
     {
-        if($subject->logFile){
-            $subject->logFile->delete();
-        }
-        elseif($subject->descriptionFile){
-            $subject->descriptionFile->delete();
-        }
-       elseif($subject->contentFile){
-        $subject->contentFile->delete();
-       }
-        $subject->delete();
-        return back()->with('success','Subject Deleted successfully!');
+        $section->delete();
+        return back()->with('success','Section Deleted successfully!');
     }
 }

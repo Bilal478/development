@@ -2,10 +2,24 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
-    protected $fillable = ['name'];
+    protected $guarded =[];
+
+    public function logFile()
+    {
+        return $this->hasOne('App\LogFile');
+    }
+
+    public function contentFile()
+    {
+        return $this->hasOne('App\ContentFile');
+    }
+
+    public function descriptionFile()
+    {
+        return $this->hasOne('App\DescriptionFile');
+    }
 }

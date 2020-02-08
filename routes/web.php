@@ -15,13 +15,19 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
 Route::resource('subject', 'SubjectController');
 
-Route::resource('logfile', 'LogFilesController');
+Route::resource('logfile', 'LogFileController');
 
-Route::resource('contentfile', 'ContentFilesController');
+Route::resource('contentfile', 'ContentFileController');
 
-Route::resource('descriptionfile', 'DescriptionFilesController');
+Route::resource('descriptionfile', 'DescriptionFileController');
+
+Route::resource('section', 'SectionController');
 
 Route::get('index', function () {
     return view('index');

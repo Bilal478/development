@@ -5,6 +5,24 @@
  */
 
 require('./bootstrap');
+window.$ = window.jQuery = require('jquery');
+import 'jquery-ui/ui/widgets/datepicker.js';
+
+  $(document).ready(function(){
+    $("#flip").click(function(){
+      $("#panel").slideToggle("slow");
+    });
+  });
+
+
+$('.datepicker').datepicker();
+
+$('.swalDefaultSuccess').click(function() {
+    Toast.fire({
+      type: 'success',
+      title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+    })
+  });
 
 window.Vue = require('vue');
 

@@ -45,22 +45,6 @@
                 </div>
             </div>
 
-
-            {{-- @foreach ($contentfiles as $contentfile)
-              <div class="col-md-3 col-sm-6 col-12 float-left mt-4">
-                  <a class="pb-8" href="{{$contentfile->path  }} ">
-                    <div class="info-box">
-                    <span class="info-box-icon bg-info"><i class="fas fa-file-download"></i></span>
-
-                    <div class="info-box-content">
-                      <span class="info-box-text mt-2">{{$contentfile->name  }}</span>
-                    </div>
-
-                  </div>
-                </a>
-              </div>
-            @endforeach --}}
-
         </form>
         <div class="card-body pt-5 mt-5 mr-4 ml-4">
             <table class="table">
@@ -72,20 +56,24 @@
                   </tr>
                 </thead>
                 <tbody>
-                @foreach ($contentfiles as $contentfile)
+                @foreach ($subjects as $subject)
+                    @if ($subject->contentFile)
 
                       <tr>
                         <td>{{$i++  }}</td>
-                        <td><a class="pb-8 text-dark" href="{{'/'.$contentfile->path  }} " download><i class="far fa-file-word"></i>&nbsp;{{$contentfile->name  }}</a></td>
+                        <td><a class="pb-8 text-dark" href="{{'/'.$subject->contentfile->path  }} " download><i class="far fa-file-word"></i>&nbsp;{{$subject->contentfile->name  }}</a></td>
 
                         <td>
-                            <form action="/contentfile/{{$contentfile->id}}" method="POST">
+                            <form action="/contentfile/{{$subject->contentfile->id}}" method="POST">
                                 @method('DELETE')
                                 @csrf
                                     <input type="submit" value="Delete" class="btn btn-danger">
                             </form>
                         </td>
                       </tr>
+
+                      @endif
+
                 @endforeach
             </tbody>
         </table>

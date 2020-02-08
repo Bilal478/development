@@ -72,24 +72,28 @@
                   </tr>
                 </thead>
                 <tbody>
-                @foreach ($descriptionfiles as $descriptionfile)
+
+                @foreach ($subjects as $subject)
+                       @if($subject->descriptionFile)
 
                       <tr>
                         <td>{{$i++  }}</td>
-                        <td><a class="pb-8 text-dark" href="{{'/'.$descriptionfile->path  }} " download><i class="far fa-file-word"></i>&nbsp;{{$descriptionfile->name  }}</a></td>
+                        <td><a class="pb-8 text-dark" href="{{'/'.$subject->descriptionFile->path }} " download><i class="far fa-file-word"></i>&nbsp;{{$subject->descriptionFile->name }}</a></td>
 
                         <td>
-                            <form action="/descriptionfile/{{$descriptionfile->id}}" method="POST">
+                            <form action="/descriptionfile/{{$subject->descriptionFile->id}}" method="POST">
                                 @method('DELETE')
                                 @csrf
                                     <input type="submit" value="Delete" class="btn btn-danger">
                             </form>
                         </td>
                       </tr>
+                      @endif
                 @endforeach
+
             </tbody>
         </table>
-            </div>
+    </div>
 
   </section>
 
