@@ -15,9 +15,29 @@ class CreateSubjectsTable extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('name');
+            $table->unsignedBigInteger('department_id');
+            $table->unsignedBigInteger('semester_id');
+            $table->unsignedBigInteger('section_id');
+            $table->text('subject_name');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
+
+                $table->foreign('department_id')
+                    ->references('id')
+                    ->on('departments')
+                    ->delete('cascade');
+
+                $table->foreign('semester_id')
+                    ->references('id')
+                    ->on('semesters')
+                    ->delete('cascade');
+
+                    $table->foreign('section_id')
+                    ->references('id')
+                    ->on('sections')
+                    ->delete('cascade');
+
+
         });
     }
 

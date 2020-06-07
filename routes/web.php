@@ -29,6 +29,12 @@ Route::resource('descriptionfile', 'DescriptionFileController');
 
 Route::resource('section', 'SectionController');
 
+Route::resource('department', 'DepartmentController');
+
+Route::resource('semester', 'SemesterController');
+
+Route::resource('teacher', 'TeacherController');
+
 Route::get('index', function () {
     return view('index');
 });
@@ -46,3 +52,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('add-section/fetch', 'SemesterController@fetch')->name('semester.fetch');
+Route::post('add-subject/fetch', 'SectionController@fetch')->name('section.fetch');

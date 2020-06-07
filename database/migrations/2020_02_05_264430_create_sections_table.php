@@ -15,8 +15,20 @@ class CreateSectionsTable extends Migration
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('name');
+            $table->unsignedBigInteger('department_id');
+            $table->unsignedBigInteger('semester_id');
+            $table->text('section_name');
             $table->timestamps();
+
+            $table->foreign('department_id')
+            ->references('id')
+            ->on('departments')
+            ->onDelete('cascade');
+
+            $table->foreign('semester_id')
+            ->references('id')
+            ->on('semesters')
+            ->onDelete('cascade');
         });
     }
 

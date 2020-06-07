@@ -86,7 +86,7 @@
                  <!-- log file -->
             <li class="nav-item has-treeview ">
               <a  href="{{ route('logfile.index') }}" class="nav-link active">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <i class="nav-icon fas fas fa-file"></i>
                 <p>
                   Log Files
                   <i class=""></i>
@@ -97,8 +97,8 @@
 
               <!-- Description Files -->
             <li class="nav-item has-treeview ">
-              <a href="{{ route('descriptionfile.index') }}" class="nav-link active">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+              <a href="{{ route('descriptionfile.index') }}" class="nav-link ">
+                <i class="nav-icon fas fa-file"></i>
                 <p>
                   Description Files
                   <i class=""></i>
@@ -109,8 +109,8 @@
 
             <!-- Content  Files -->
             <li class="nav-item has-treeview ">
-              <a href="{{ route('contentfile.index') }}" class="nav-link active">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+              <a href="{{ route('contentfile.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-file"></i>
                 <p>
                   Content Files
                   <i class=""></i>
@@ -150,7 +150,7 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
+{{-- <script src="plugins/jquery/3.4.1jquery.min.js"></script> --}}
 <!-- jQuery -->
 <script href="{{asset('plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -221,5 +221,6 @@
 <script src="/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/dist/js/demo.js"></script>
+
 </body>
 </html>

@@ -1,6 +1,6 @@
 <li class="nav-item has-treeview ">
-    <a  href="{{ route('subject.create') }}" class="nav-link active">
-      <i class="nav-icon fas fa-tachometer-alt"></i>
+    <a  href="{{ route('subject.create') }}" class="nav-link">
+      <i class="nav-icon fas fa-book"></i>
       <p>
        Add Subject
         <i class=""></i>
@@ -8,27 +8,54 @@
     </a>
 </li>
 <li class="nav-item has-treeview ">
-    <a  href="{{ route('section.create') }}" class="nav-link active">
-      <i class="nav-icon fas fa-tachometer-alt"></i>
+    <a  href="{{ route('section.create') }}" class="nav-link ">
+      <i class="nav-icon fas fa-plus-circle"></i>
       <p>
        Add Section
         <i class=""></i>
       </p>
     </a>
 </li>
-
 <li class="nav-item has-treeview ">
-    <a  href="{{ route('subject.index') }}" class="nav-link active">
-      <i class="nav-icon fas fa-tachometer-alt"></i>
+    <a  href="{{ route('semester.create') }}" class="nav-link ">
+      <i class="nav-icon fas fa-plus-circle"></i>
       <p>
-       Add Files
+       Add Semester
         <i class=""></i>
       </p>
     </a>
 </li>
 
 <li class="nav-item has-treeview ">
-    <a href="#" class="nav-link active">
+    <a  href="{{ route('subject.index') }}" class="nav-link">
+      <i class="nav-icon fas fa-folder-plus"></i>
+      <p>
+       Add Files
+        <i class=""></i>
+      </p>
+    </a>
+</li>
+<li class="nav-item has-treeview ">
+    <a  href="{{ route('department.create') }}" class="nav-link">
+      <i class="nav-icon fas fa-folder-plus"></i>
+      <p>
+       Add Department
+        <i class=""></i>
+      </p>
+    </a>
+</li>
+<li class="nav-item has-treeview ">
+    <a  href="{{ route('teacher.create') }}" class="nav-link">
+      <i class="nav-icon fas fa-folder-plus"></i>
+      <p>
+       Add Teacher
+        <i class=""></i>
+      </p>
+    </a>
+</li>
+
+<li class="nav-item has-treeview ">
+    <a href="#" class="nav-link">
       <i class="nav-icon fas fa-tachometer-alt"></i>
       <p>
         Quizzes
@@ -66,7 +93,7 @@
  <!-- assignmnet management -->
 
  <li class="nav-item has-treeview ">
-    <a href="#" class="nav-link active">
+    <a href="#" class="nav-link ">
       <i class="nav-icon fas fa-tachometer-alt"></i>
       <p>
         Assignments
@@ -101,7 +128,7 @@
   <!-- Exam Management -->
 
   <li class="nav-item has-treeview ">
-    <a href="#" class="nav-link active">
+    <a href="#" class="nav-link ">
       <i class="nav-icon fas fa-tachometer-alt"></i>
       <p>
         Mid Exam
@@ -136,7 +163,7 @@
 <!-- Final Exam Management     -->
 
 <li class="nav-item has-treeview ">
-    <a href="#" class="nav-link active">
+    <a href="#" class="nav-link ">
       <i class="nav-icon fas fa-tachometer-alt"></i>
       <p>
         Fianl Exam

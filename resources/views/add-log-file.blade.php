@@ -31,9 +31,9 @@
                 <option value = ""  selected="selected">-----Select Subject----</option>
 
                 @foreach ($subjects as $subject)
-                <option value="{{$subject->id}}">{{$subject->name}}</option>
+                <option value="{{$subject->id}}">{{$subject->subject_name}}</option>
                 @endforeach
-                <input type="hidden" value="{{$subject->name}}" name="book_name">
+                {{-- <input type="hidden" value="{{$subject->name}}" name="book_name"> --}}
                 </select>
 
                 <div class="form-group mb-2">

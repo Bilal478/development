@@ -4,15 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Section extends Model
+class Semester extends Model
 {
-    protected $guarded =[];
+    protected $guarded = [];
 
     public function department(){
         $this->belongsTo('App\Department');
-    }
-    public function semester(){
-        $this->belongsTo('App\Semester');
     }
     public function subject()
     {

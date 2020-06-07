@@ -22,4 +22,17 @@ class Subject extends Model
     {
         return $this->hasOne('App\DescriptionFile');
     }
+
+    public function department()
+    {
+        return $this->belongsTo('App\Department');
+    }
+
+    public function semester(){
+        $this->belongsTo('App\Semester');
+    }
+
+    public function section(){
+        $this->belongsTo('App\Section');
+    }
 }

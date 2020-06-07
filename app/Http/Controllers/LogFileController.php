@@ -34,8 +34,8 @@ class LogFileController extends Controller
         if($request->hasFile('name')){
             $fileExtention = $request->name->getClientOriginalExtension();
 
-            if($fileExtention != 'docx')
-            return back()->with('warning','Plese add file of extention .docx');
+            // if($fileExtention != 'docx')
+            // return back()->with('warning','Plese add file of extention .docx');
 
             $value = DB::table('log_files')->where('subject_id',$request->subject_id)->exists();
             if($value == true){

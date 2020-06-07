@@ -31,7 +31,7 @@
                 <option value = "" selected="selected">-----Select Subject----</option>
 
                 @foreach ($subjects as $subject)
-                <option value="{{$subject->id}}">{{$subject->name}}</option>
+                <option value="{{$subject->id}}">{{$subject->subject_name}}</option>
                 @endforeach
                 </select>
 

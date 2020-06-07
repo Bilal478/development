@@ -5,10 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Subject;
+use App\Department;
+use App\Semester;
+Use App\Section;
 use App\Logfile;
 
 class SubjectController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('subject',['only' => ['store']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -26,8 +33,10 @@ class SubjectController extends Controller
      */
     public function create()
     {
+        $departments =  Department::all();
         $subjects = Subject::all();
-        return view('add-subject',compact('subjects'));
+        $semesters = "";
+        return view('add-subject',compact('subjects','departments','semesters'));
     }
 
     /**
@@ -39,7 +48,10 @@ class SubjectController extends Controller
     public function store(Subject $subject)
     {
         $validate = request()->validate([
-            'name' => ['required', 'min:3']
+            'subject_name' => ['required', 'min:3'],
+            'department_id' => ['required'],
+            'semester_id' => ['required'],
+            'section_id' => ['required']
         ]);
 
         $subject->create($validate);
@@ -65,7 +77,12 @@ class SubjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        $departments = Department::all();
+        $semesters = Semester::all();
+        $sections = Section::all();
+        $subject = Subject::find($id);
+
+        return view('update-subject',compact('departments','semesters','sections','subject'));
     }
 
     /**
@@ -75,9 +92,19 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Subject $subject)
     {
-        //
+
+        $validate = request()->validate([
+            'subject_name' => ['required', 'min:3'],
+            'department_id' => ['required'],
+            'semester_id' => ['required'],
+            'section_id' => ['required']
+
+        ]);
+
+        $subject->update($validate);
+        return back()->with('success','Subject Updated successfully!');
     }
 
     /**

@@ -8,19 +8,17 @@
       <div class="row mb-2">
         <div class="col-sm-6">
           <h4 class="m-0 text-dark">Add Content file</h4>
-        </div><!-- /.col -->
+        </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item active">{{$i=1}}Add contetn file</li>
           </ol>
-        </div><!-- /.col -->
-      </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
+        </div>
+      </div>
+    </div>
   </div>
-  <!-- /.content-header -->
 
-  <!-- Main content -->
   <section class="content">
 
         <form method="POST" action="{{ route('contentfile.store') }}" enctype="multipart/form-data">
@@ -31,7 +29,7 @@
                 <option value = ""  selected="selected">-----Select Subject----</option>
 
                 @foreach ($subjects as $subject)
-                <option value="{{$subject->id}}">{{$subject->name}}</option>
+                <option value="{{$subject->id}}">{{$subject->subject_name}}</option>
                 @endforeach
                 </select>
 
