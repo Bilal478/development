@@ -169,7 +169,7 @@ $i=1;
             'user_id' => $data->id,
             'name' => $data->first_name." ".$data->last_name,
             'email' => $data->email,
-            'password' => bcrypt('admin'),
+            'password' => bcrypt('student'),
             'type' => $type,
          ]);
         return back()->with('success','Rules Assign  successfully!');

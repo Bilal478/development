@@ -86,7 +86,7 @@ class TeacherController extends Controller
             'user_id' => $data->id,
             'name' => $data->first_name." ".$data->last_name,
             'email' => $data->email,
-            'password' => bcrypt('admin'),
+            'password' => bcrypt('teacher'),
             'type' => $type,
          ]);
         return back()->with('success','Rules Assign  successfully!');
