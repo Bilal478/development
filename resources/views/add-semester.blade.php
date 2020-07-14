@@ -32,7 +32,7 @@
                 <option value = ""  selected="selected">-----Select Department----</option>
 
                 @foreach ($departments as $department)
-                <option  value="{{$department->id}}">{{$department->department_name}}</option>
+                <option id="d_name" value="{{$department->id}}">{{$department->department_name}}</option>
                 @endforeach
 
             </select>
@@ -47,32 +47,15 @@
     </form>
         <div class="card-body pt-5 mt-5 mr-4 ml-4">
         <table class="table">
-            <thead class="bg-white">
+            <thead class="bg-dark">
               <tr>
                 <th style="width: 10px">#</th>
                 <th>Semester</th>
-                <th>Department</th>
-                <th style="width: 40px">Action</th>
+                <th >Department</th>
+                
               </tr>
             </thead>
             <tbody id="semester">
-
-    {{-- @foreach ($semesters as $semester)
-
-    <tr >
-        <td>{{$i++  }}</td>
-        <td>&nbsp;{{"Semester ".$semester->semester_name  }}</td>
-        <td></td>
-        <td>
-            <form action="/semester/{{$semester->id}}" method="POST">
-                @method('DELETE')
-                @csrf
-                    <input type="submit" value="Delete" class="btn btn-danger">
-            </form>
-        </td>
-      </tr>
-      @endforeach --}}
-
 
 
 

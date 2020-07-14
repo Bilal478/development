@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Subject;
 use App\Department;
@@ -51,7 +52,6 @@ class SubjectController extends Controller
             'subject_name' => ['required', 'min:3'],
             'department_id' => ['required'],
             'semester_id' => ['required'],
-            'section_id' => ['required']
         ]);
 
         $subject->create($validate);
@@ -99,7 +99,8 @@ class SubjectController extends Controller
             'subject_name' => ['required', 'min:3'],
             'department_id' => ['required'],
             'semester_id' => ['required'],
-            'section_id' => ['required']
+            
+
 
         ]);
 
@@ -126,5 +127,23 @@ class SubjectController extends Controller
        }
         $subject->delete();
         return back()->with('success','Subject Deleted successfully!');
+    }
+
+    public function fetch(Request $request)
+    {
+        $select = $request->get('select');
+         $value = $request->get('value');
+      
+        $data = DB::table('subjects')
+        ->where($select, $value)
+        // ->groupBy($dependent)
+        ->get();
+   
+     $output = ' <option value = " ">-----Select Subject----</option>';
+     foreach($data as $row)
+     {
+      $output .= '<option value="'.$row->id.'">'.$row->subject_name.'</option>';
+     }
+     echo $output;
     }
 }

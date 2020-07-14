@@ -17,7 +17,6 @@ class CreateSubjectsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('department_id');
             $table->unsignedBigInteger('semester_id');
-            $table->unsignedBigInteger('section_id');
             $table->text('subject_name');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
@@ -32,10 +31,7 @@ class CreateSubjectsTable extends Migration
                     ->on('semesters')
                     ->delete('cascade');
 
-                    $table->foreign('section_id')
-                    ->references('id')
-                    ->on('sections')
-                    ->delete('cascade');
+
 
 
         });

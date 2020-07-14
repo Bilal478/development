@@ -38,7 +38,7 @@
 
     <div class="card-body pt-5 mt-5 mr-4 ml-4 ">
         <table class="table">
-            <thead class="bg-white">
+            <thead class="bg-dark">
               <tr>
                 <th style="width: 10px">#</th>
                 <th>Semesters of Department</th>
@@ -55,7 +55,7 @@
 
             @foreach ($semesters as $semester)
 
-            <tr>
+            <tr class="bg-white">
                 <td>{{$i++  }}</td>
                 <td>Semester # &nbsp;{{$semester->semester_name  }}</td>
 
@@ -81,7 +81,7 @@
         </div>
         <div class="card-body pt-5 mt-0.5 mr-4 ml-4 ">
         <table class="table">
-            <thead class="bg-white">
+            <thead class="bg-dark">
               <tr>
                 <th style="width: 10px">#</th>
                 <th>Teachers of Department</th>
@@ -98,7 +98,7 @@
 
             @foreach ($teachers as $teacher)
 
-            <tr>
+            <tr class="bg-white">
                 <td>{{$i++  }}</td>
                 <td>&nbsp;{{$teacher->first_name  }}</td>
 
@@ -124,7 +124,7 @@
         </div>
         <div class="card-body pt-5 mt-0.5 mr-4 ml-4 ">
             <table class="table">
-                <thead class="bg-white">
+                <thead class="bg-dark">
                   <tr>
                     <th style="width: 10px">#</th>
                     <th>Subjects of Department</th>
@@ -141,7 +141,7 @@
 
 
                     @foreach ($subjects as $subject)
-                <tr>
+                <tr class="bg-white">
                     <td>{{$i++  }}</td>
                     <td>&nbsp;{{$subject->subject_name  }}</td>
 

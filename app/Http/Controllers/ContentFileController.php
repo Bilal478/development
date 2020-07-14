@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Subject;
+use App\Department;
 use App\ContentFile;
 
 class ContentFileController extends Controller
@@ -28,8 +29,8 @@ class ContentFileController extends Controller
      */
     public function create()
     {
-        $subjects = Subject::all();
-        return view('add-content-file',compact('subjects'));
+        $departments = Department::all();
+        return view('add-content-file',compact('departments'));
     }
 
     /**
@@ -53,7 +54,7 @@ class ContentFileController extends Controller
             }
 
             $subject = Subject::find($request->subject_id );
-            $fileName =$subject->name;
+            $fileName =$subject->subject_name;
 
             $fileName = $fileName.".".$fileExtention;
             $request->name->storeAs('public/files/contentfiles/',$fileName);

@@ -49,42 +49,7 @@
         </div>
 
       </form>
-      <div class="card-body pt-5 mt-5 mr-4 ml-4">
-          <?php $i=1 ?>
-        <table class="table">
-            <thead class="bg-white">
-              <tr>
-                <th style="width: 10px">#</th>
-                <th>Section</th>
-                <th style="width: 40px">Update</th>
-                <th style="width: 40px">Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-            {{-- @foreach ($sections as $section)
-
-                  <tr>
-                    <td>{{$i++  }}</td>
-                    <td>&nbsp;{{$section->name  }}</td>
-                    <td>
-                        <form action="{{ route('section.edit',$section->id) }}">
-                            @method('GET')
-                            @csrf
-                                <input type="submit" value="Update" class="btn btn-success">
-                        </form>
-                    </td>
-                    <td>
-                        <form action="{{ route('section.destroy',$section->id) }}" method="POST">
-                            @method('DELETE')
-                            @csrf
-                                <input type="submit" value="Delete" class="btn btn-danger">
-                        </form>
-                    </td>
-                  </tr>
-            @endforeach --}}
-        </tbody>
-    </table>
-        </div>
+  
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script>
             $(document).ready(function(){

@@ -18,7 +18,8 @@ class CheckSubject
         $check =  DB::table('subjects')->where([
             ['subject_name',$request->subject_name],
             ['semester_id',$request->semester_id],
-            ['department_id',$request->department_id]
+            ['department_id',$request->department_id],
+           
         ])->exists();
 
         if($check == true)

@@ -27,7 +27,7 @@ class DepartmentController extends Controller
     }
     public function show()
     {
-        dd("show")
+
 ;    }
 
     public function edit(Department $department)

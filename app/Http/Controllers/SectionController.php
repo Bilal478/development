@@ -48,6 +48,7 @@ class SectionController extends Controller
         ->get();
 
      $output = ' ';
+     $output = ' <option value = " ">-----Select Subject----</option>';
      foreach($data as $row)
      {
       $output .= '<option value="'.$row->id.'">'.$row->section_name.'</option>';

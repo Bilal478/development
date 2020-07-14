@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use App\LogFile;
 use App\Subject;
+use App\Department;
 
 class LogFileController extends Controller
 {
@@ -21,11 +22,12 @@ class LogFileController extends Controller
 
     public function create(Subject $subjects )
     {
-        $subjects = Subject::all();
+      
+        $departments = Department::all();
         // foreach($subjects as $file){
         //     dd($file->logFile->path);
         // }
-        return view('add-log-file',compact('subjects'));
+        return view('add-log-file',compact('departments'));
     }
 
     public function store(Request $request)
@@ -34,8 +36,8 @@ class LogFileController extends Controller
         if($request->hasFile('name')){
             $fileExtention = $request->name->getClientOriginalExtension();
 
-            // if($fileExtention != 'docx')
-            // return back()->with('warning','Plese add file of extention .docx');
+            if($fileExtention != 'docx')
+            return back()->with('warning','Plese add file of extention .docx');
 
             $value = DB::table('log_files')->where('subject_id',$request->subject_id)->exists();
             if($value == true){
@@ -43,7 +45,8 @@ class LogFileController extends Controller
             }
 
             $subject = Subject::find($request->subject_id );
-            $fileName =$subject->name;
+
+            $fileName =$subject->subject_name;
             $fileName = $fileName.".".$fileExtention;
             $request->name->storeAs('public/files/logfiles/',$fileName);
 
@@ -59,7 +62,7 @@ class LogFileController extends Controller
         }
 
     }
-
+    
     public function show(LogFile $logfile)
     {
 

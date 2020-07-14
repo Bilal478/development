@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+{{-- <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
       <img src="{{url('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
@@ -26,7 +26,7 @@
 
                <!-- log file -->
           <li class="nav-item has-treeview ">
-            <a  href="{{ route('subject.create') }}" class="nav-link active">
+            <a  href="{{ route('subject.create') }}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Log Files
@@ -208,3 +208,5 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+
+ --}}

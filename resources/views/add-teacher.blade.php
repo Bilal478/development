@@ -80,18 +80,19 @@
       <div class="card-body pt-5 mt-5 mr-4 ml-4">
 
         <table class="table">
-            <thead class="bg-white">
+            <thead class="bg-dark">
               <tr>
                 <th style="width: 10px">#</th>
-                <th>Subject name</th>
+                <th>Teacher Name</th>
                 <th style="width: 40px">Update</th>
                 <th style="width: 40px">Delete</th>
+                <th style="width: 40px">Rights</th>
               </tr>
             </thead>
             <tbody>
                 @foreach ($teachers as $teacher)
 
-                  <tr>
+                  <tr class="bg-white">
                     <td>{{$i++  }}</td>
                     <td>{{$teacher->first_name  }}</td>
 
@@ -109,6 +110,14 @@
                                 <input type="submit" value="Delete" class="btn btn-danger">
                         </form>
                     </td>
+                    <td>
+                      <form  action="{{ route('teacher.assignLogin') }}" method="POST">
+                       
+                          @csrf
+                              <input type="hidden" name="id" value="{{$teacher->id}}">
+                              <input type="submit" value="Allow Login" class="btn btn-primary">
+                      </form>
+                  </td>
                   </tr>
             @endforeach
         </tbody>

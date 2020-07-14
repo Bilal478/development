@@ -33,16 +33,10 @@ $i=1;
     foreach($semesters as $semester)
     {
 
-        $output .= "<tr>
+        $output .= "<tr class='bg-white'>
         <td>".$i++."</td>
         <td>".'Semester '.$semester->semester_name."</td>
         <td>".$d_name."</td>
-         <td>
-            <form action='/semester/'{{$semester->id }} method='DELETE' token='_csrf'>
-
-                    <input type='submit' value='Delete' class='btn btn-danger'>
-            </form>
-        </td>
       </tr>";
     //  $output .= '<option value="'.$row->id.'">'."Semester " .$row->semester_name.'</option>';
     }
@@ -139,7 +133,7 @@ $i=1;
      */
     public function destroy(Semester $semester)
     {
-        dd("ddddddd");
+        
         $semester->delete();
         return back()->with('success','Semester Deleted successfully!');
     }

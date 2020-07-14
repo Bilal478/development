@@ -37,7 +37,7 @@
     </form>
         <div class="card-body pt-5 mt-5 mr-4 ml-4">
         <table class="table">
-            <thead class="bg-white">
+            <thead class="bg-dark  ">
               <tr>
                 <th style="width: 10px">#</th>
                 <th>Department</th>
@@ -49,7 +49,7 @@
 
             @foreach ($departments as $department)
 
-            <tr>
+            <tr class="bg-white">
                 <td>{{$i++  }}</td>
                 <td>&nbsp;{{$department->department_name }}</td>
 

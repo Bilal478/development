@@ -48,10 +48,18 @@
                                     document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
                 </a>
+                <a class="dropdown-item" href="{{ route('changePasword') }}"
+                onclick="event.preventDefault();
+                                document.getElementById('change-password-form').submit();">
+                {{ __('Change Password') }}
+            </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
+                <form id="change-password-form" action="{{ route('changePasword') }}" method="GET" style="display: none;">
+                  @csrf
+              </form>
             </div>
         </li>
     </ul>
@@ -84,8 +92,17 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                  <!-- log file -->
-            <li class="nav-item has-treeview ">
-              <a  href="{{ route('logfile.index') }}" class="nav-link active">
+                 <li class="nav-item bg-blue ">
+                  <a href="{{ route('home') }}" class="nav-link ">
+                    <i class="nav-icon fas fas fa-file"></i>
+                    <p>
+                      Dashboard
+                      <i class=""></i>
+                    </p>
+                  </a>
+                </li>
+            <li class="nav-item  ">
+              <a  href="{{ route('logfile.index') }}" class="nav-link ">
                 <i class="nav-icon fas fas fa-file"></i>
                 <p>
                   Log Files
@@ -96,7 +113,7 @@
               <!-- end log files -->
 
               <!-- Description Files -->
-            <li class="nav-item has-treeview ">
+            <li class="nav-item ">
               <a href="{{ route('descriptionfile.index') }}" class="nav-link ">
                 <i class="nav-icon fas fa-file"></i>
                 <p>
@@ -108,7 +125,7 @@
             <!-- end descriptin     -->
 
             <!-- Content  Files -->
-            <li class="nav-item has-treeview ">
+            <li class="nav-item ">
               <a href="{{ route('contentfile.index') }}" class="nav-link">
                 <i class="nav-icon fas fa-file"></i>
                 <p>
@@ -117,10 +134,330 @@
                 </p>
               </a>
             </li>
+            @if(Auth::user()->type == 'student')
+            <li class="nav-item ">
+              <a href="{{ route('enrollsubject.show',Auth::user()->user_id) }}" class="nav-link">
+                <i class="nav-icon fas fa-folder-plus"></i>
+                <p>
+                 Enroll Subject
+                  <i class=""></i>
+                </p>
+              </a>
+          </li>
+          <li class="nav-item ">
+            <a href="{{ route('uploadassignment.show',Auth::user()->user_id) }}" class="nav-link">
+              <i class="nav-icon fas fa-folder-plus"></i>
+              <p>
+              Upload Assignment
+                <i class=""></i>
+              </p>
+            </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('uploadassignment.showAssignmentMarks',Auth::user()->user_id) }}" class="nav-link">
+            <i class="nav-icon fas fa-folder-plus"></i>
+            <p>Assignment Marks</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('quiz.showSubject',Auth::user()->user_id) }}" class="nav-link">
+            <i class="nav-icon fas fa-folder-plus"></i>
+            <p>Start Quiz</p>
+          </a>
+        </li>
+          @endif
             <!-- end Content     -->
-
+            @yield('sidebar')
             @if(Auth::user()->type == 'admin')
-            @include('test')
+           {{-- admin --}}
+           <li class="nav-item  ">
+            <a  href="{{ route('subject.create') }}" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+               Add Subject
+                <i class=""></i>
+              </p>
+            </a>
+        </li>
+        <li class="nav-item  ">
+            <a  href="{{ route('section.create') }}" class="nav-link ">
+              <i class="nav-icon fas fa-plus-circle"></i>
+              <p>
+               Add Section
+                <i class=""></i>
+              </p>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a  href="{{ route('semester.create') }}" class="nav-link ">
+              <i class="nav-icon fas fa-plus-circle"></i>
+              <p>
+               Add Semester
+                <i class=""></i>
+              </p>
+            </a>
+        </li>
+
+        <li class="nav-item  ">
+            <a  href="{{ route('subject.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-folder-plus"></i>
+              <p>
+               Add Files
+                <i class=""></i>
+              </p>
+            </a>
+        </li>
+        <li class="nav-item  ">
+            <a  href="{{ route('department.create') }}" class="nav-link">
+              <i class="nav-icon fas fa-folder-plus"></i>
+              <p>
+               Add Department
+                <i class=""></i>
+              </p>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a  href="{{ route('teacher.create') }}" class="nav-link">
+              <i class="nav-icon fas fa-folder-plus"></i>
+              <p>
+               Add Teacher
+                <i class=""></i>
+              </p>
+            </a>
+        </li>
+        <li class="nav-item ">
+          <a  href="{{ route('student.create') }}" class="nav-link">
+            <i class="nav-icon fas fa-folder-plus"></i>
+            <p>
+             Add Student
+              <i class=""></i>
+            </p>
+          </a>
+      </li>
+        <li class="nav-item ">
+            <a  href="{{ route('assignsubject.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-folder-plus"></i>
+              <p>
+               Assign Subject
+                <i class=""></i>
+              </p>
+            </a>
+        </li>
+       
+
+        {{-- <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Quizzes
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="generatequiz" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Generate Quiz</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Update Quiz</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Start Quiz</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Quiz</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+        
+          <!-- Exam Management -->
+
+          <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Mid Exam
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Upload Ppaer</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Ppaer</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mark & update Ppaer</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+           <!-- Mid Exam end -->
+
+        <!-- Final Exam Management     -->
+
+        <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Fianl Exam
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Upload Ppaer</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Ppaer</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mark & update Ppaer</p>
+                </a>
+              </li>
+
+            </ul>
+          </li> --}}
+
+        <!-- End Final -->
+
+            @endif
+
+            @if(Auth::user()->type == 'teacher')
+
+
+
+
+<li class="nav-item has-treeview ">
+    <a href="#" class="nav-link">
+      <i class="nav-icon fas fa-tachometer-alt"></i>
+      <p>
+        Quizzes
+        <i class="right fas fa-angle-left"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{{ route('quiz.show',Auth::user()->user_id) }}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Generate Quiz</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('quiz.showAssignSubject',Auth::user()->user_id) }}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Update Quiz</p>
+        </a>
+      </li>
+     
+      <li class="nav-item">
+        <a href="{{ route('quizanswer.show',Auth::user()->user_id) }}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>View Quiz</p>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+ <!-- assignmnet management -->
+
+ <li class="nav-item has-treeview ">
+    <a href="#" class="nav-link ">
+      <i class="nav-icon fas fa-tachometer-alt"></i>
+      <p>
+        Assignments
+        <i class="right fas fa-angle-left"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+
+      <li class="nav-item">
+        <a href="{{ route('assignment.show',Auth::user()->user_id) }}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Upload Assignment</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('uploadassignment.showUploadedAssignment',Auth::user()->user_id) }}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Mark Assignment</p>
+        </a>
+      </li>
+     
+    </ul>
+  </li>
+
+ <!-- assignmnet end -->
+
+  <!-- Exam Management -->
+
+  <li class="nav-item has-treeview ">
+    <a href="#" class="nav-link ">
+      <i class="nav-icon fas fa-tachometer-alt"></i>
+      <p>
+        Exams
+        <i class="right fas fa-angle-left"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Mid Exam</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Final Exam</p>
+        </a>
+      </li>
+      
+
+    </ul>
+  </li>
+   <!-- Mid Exam end -->
+
+<!-- Final Exam Management     -->
+
+    
+  </li>
+
+<!-- End Final -->
+
             @endif
 
           </ul>
@@ -136,12 +473,12 @@
     @yield('content')
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer text-center ">
+  {{-- <footer class="main-footer text-center ">
     <strong>Copyright &copy; 2016-2020 <a href="https://superior.edu.pk/" target="_blank">Superior.edu</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
     </div>
-  </footer>
+  </footer> --}}
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -221,6 +558,13 @@
 <script src="/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/dist/js/demo.js"></script>
+<script>
 
+    $(document).ready(function(){
+        $('.nav-item').click(function(){
+        $(this).css('background-color','blue');
+    });
+    });
+    </script>
 </body>
 </html>

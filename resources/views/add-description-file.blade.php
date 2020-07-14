@@ -26,20 +26,29 @@
         <form method="POST" action="{{ route('descriptionfile.store') }}" enctype="multipart/form-data">
           @csrf
             <div class="ml-4 mr-4 ">
-                <label>Select Subject</label>
-                <select class="form-control select2" style="width: 100%;" name="subject_id" required>
-                <option value = "" selected="selected">-----Select Subject----</option>
+              Select Department
+              <select class="form-control select2 dynamic"
+              name="department_id" id="department_id" data-dependent="subject_id" required>
+                  <option value = "" >-----Select Department----</option>
 
-                @foreach ($subjects as $subject)
-                <option value="{{$subject->id}}">{{$subject->subject_name}}</option>
-                @endforeach
+                  @foreach ($departments as $department)
+                  <option value="{{$department->id}}">{{$department->department_name}}</option>
+                  @endforeach
+
+              </select>
+              <div class="form-group mt-2">
+                Select Subject
+                <select class="form-control select2" name="subject_id" id="subject_id" required>
+                <option value = ""  selected="selected">-----Select Subject----</option>
+
+                
                 </select>
-
-                <div class="form-group mb-2">
-                    <label class="mt-1">Select file</label>
+              </div>
+                <div class="form-group ">
+                   Select file
                     <div class="custom-file">
-                    <label class="custom-file-label" for="customFile">Choose file</label>
                     <input type="file" name="name" class="custom-file-input" id="customFile" required>
+                    <label class="custom-file-label" for="customFile">Choose file</label>
                     <button type="submit" class="btn btn-primary float-right mt-2">Submit</button>
                     </div>
                 </div>
@@ -73,7 +82,7 @@
                 </thead>
                 <tbody>
 
-                @foreach ($subjects as $subject)
+                {{-- @foreach ($subjects as $subject)
                        @if($subject->descriptionFile)
 
                       <tr>
@@ -89,13 +98,41 @@
                         </td>
                       </tr>
                       @endif
-                @endforeach
+                @endforeach --}}
 
             </tbody>
         </table>
     </div>
 
   </section>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+      $(document).ready(function(){
 
+          $('.dynamic').change(function(){
+          if($(this).val() != '')
+          {
+         
+          var select = $(this).attr("id");
+
+          var value = $(this).val();
+          var dependent = $(this).data('dependent');
+          var _token = $('input[name="_token"]').val();
+          $.ajax({
+          url:"{{ route('subject.fetch') }}",
+          method:"POST",
+          data:{select:select, value:value, _token:_token},
+          success:function(result)
+          {
+              $('#'+dependent).html(result);
+          }
+
+          })
+          }
+          });
+
+      });
+
+  </script>
 @endsection
 

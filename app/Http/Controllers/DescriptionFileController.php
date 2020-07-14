@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Subject;
+use App\Department;
 use App\DescriptionFile;
 
 class DescriptionFileController extends Controller
@@ -28,11 +29,11 @@ class DescriptionFileController extends Controller
      */
     public function create()
     {
-        $subjects = Subject::all();
+        $departments = Department::all();
         // foreach($subjects as $subject){
         //         dd($subject->descriptionFile->path);
         //      }
-        return view('add-description-file',compact('subjects'));
+        return view('add-description-file',compact('departments'));
 
     }
 
@@ -57,9 +58,10 @@ class DescriptionFileController extends Controller
             }
 
             $subject = Subject::find($request->subject_id );
-            $fileName =$subject->name;
+            $fileName =$subject->subject_name;
 
             $fileName = $fileName.".".$fileExtention;
+
             $request->name->storeAs('public/files/descriptionfiles/',$fileName);
 
             $descriptionfile = new DescriptionFile;
