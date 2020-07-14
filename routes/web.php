@@ -86,10 +86,10 @@ Route::get('show-assignment-marks/{id}', 'UploadAssignmentController@showAssignm
 Route::get('show-assign-subject/{id}', 'QuizController@showAssignSubject')->name('quiz.showAssignSubject');
 
 
-Route::post('add-teacher/assignlogin','teacherController@assignLogin')->name('teacher.assignLogin');
-Route::post('add-student/assignlogin','studentController@assignLogin')->name('student.assignLogin');
+Route::post('add-teacher/assignlogin','TeacherController@assignLogin')->name('teacher.assignLogin');
+Route::post('add-student/assignlogin','StudentController@assignLogin')->name('student.assignLogin');
 
-Route::get('show-assignment/assignment/{id}','assignmentController@showAssignment')->name('assignment.showAssignment');
+Route::get('show-assignment/assignment/{id}','AssignmentController@showAssignment')->name('assignment.showAssignment');
 Route::get('show-subject/student/{id}','StudentController@showSubject')->name('student.showSubject');
 Route::get('show-quiz-subject/student/{id}','QuizController@showSubject')->name('quiz.showSubject');
 
