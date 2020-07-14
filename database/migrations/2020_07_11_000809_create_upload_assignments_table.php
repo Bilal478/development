@@ -20,7 +20,7 @@ class CreateUploadAssignmentsTable extends Migration
             $table->unsignedBigInteger('section_id');
             $table->unsignedBigInteger('subject_id');
             $table->string('assignment_number');
-            $table->integer('obtained_marks')->default("--");
+            $table->integer('obtained_marks')->default("0");
             $table->string('name');
             $table->string('path');
             $table->timestamps();
