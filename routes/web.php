@@ -51,6 +51,8 @@ Route::resource('quizanswer', 'QuizAnswerController');
 
 Route::resource('question', 'QuestionController');
 
+Route::resource('uploadexam', 'ExamController');
+
 
 Route::get('index', function () {
     return view('index');
@@ -82,6 +84,8 @@ Route::post('show-quiz/fetch', 'QuizController@fetch')->name('quiz.fetch');
 
 Route::get('show-upload-assignment/{id}', 'UploadAssignmentController@showUploadedAssignment')->name('uploadassignment.showUploadedAssignment');
 Route::get('show-assignment-marks/{id}', 'UploadAssignmentController@showAssignmentMarks')->name('uploadassignment.showAssignmentMarks');
+
+Route::get('select-subject/{id}', 'ExamController@selectSubject')->name('uploadexam.selectSubject');
 
 Route::get('show-assign-subject/{id}', 'QuizController@showAssignSubject')->name('quiz.showAssignSubject');
 

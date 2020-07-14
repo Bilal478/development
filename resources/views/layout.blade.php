@@ -434,15 +434,15 @@
     <ul class="nav nav-treeview">
 
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{ route('uploadexam.selectSubject',Auth::user()->user_id) }}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
-          <p>Mid Exam</p>
+          <p>Upload Exam</p>
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{ route('uploadexam.show',Auth::user()->user_id) }}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
-          <p>Final Exam</p>
+          <p>View/Update Exam</p>
         </a>
       </li>
       
