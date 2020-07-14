@@ -57,9 +57,10 @@ class TeacherController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Teacher $teacher)
+    public function store(Teacher $teacher, Request $request)
     {
 
+     
         $validate = request()->validate([
             "department_id" => ['required','min:1'],
             "first_name" => ['required','min:3'],
