@@ -94,7 +94,7 @@
 
                   <tr class="bg-white">
                     <td>{{$i++  }}</td>
-                    <td>{{$teacher->first_name  }}</td>
+                    <td>{{$teacher->first_name."  ".$teacher->last_name  }}</td>
 
                     <td>
                         <form action="/teacher/{{$teacher->id}}/edit" method="GET">
