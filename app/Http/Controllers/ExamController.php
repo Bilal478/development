@@ -68,11 +68,11 @@ class ExamController extends Controller
                 return back()->with('warning','Plese add file of extention jpg or png');
             }
 
-           
-
+         
             $value = DB::table('exams')
             ->where([
                 ['subject_id',$request->subject_id],
+                ['student_id',$request->student_id],
                 ['exam_type',$request->exam_type]
                 ])->exists();
             if($value == true){
@@ -96,7 +96,7 @@ class ExamController extends Controller
             foreach ($request->photos as $photo) {
 
                 $photoExtention = $photo->getClientOriginalExtension();
-                $fileName = date("Y-m-d H-i-s").rand().".".$photoExtention;
+                $fileName = rand().".".$photoExtention;
                
                 if($request->exam_type == "midd")
                 $photo->storeAs('public/exam/midd/',$fileName);
