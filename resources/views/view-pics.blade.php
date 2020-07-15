@@ -8,7 +8,7 @@
   
     <div class="row  pl-5 p-2">
         @foreach ($exampics as $exampic)
-       
+        <img src='storage/exam/midd/2122580450.png' alt="Lights" width="200rem" height="100rem" download>
       <div class="bg-danger m-4">
         <div class="img-rounded">
           <a href="{{$exampic->path}}" target="_blank">
